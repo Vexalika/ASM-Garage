@@ -1,4 +1,4 @@
-This hack changes the avoid calculation for an arbitrary list of classes. I personally use it with DSFE avoid by GratedShtick but it fuctions just fine in vanilla as the actual calculation add an extra bonus luck and speed.
+This hack changes the avoid calculation for an arbitrary list of classes. I personally use it with DSFE avoid by GratedShtick but it functions just fine in vanilla as the actual calculation add an extra bonus luck and speed.
 
 This has pretty straight foward installation and usage.
 
