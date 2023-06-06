@@ -3,5 +3,5 @@
 #include "ItemTypeWTA.lyn.event"
 
 ItemTypeWTAList: //Attacker weapon, Type, Hit change, Damage change
-BYTE IronSword 1 30 5 
+BYTE IronSword 1 15 1 //The Iron Sword gains +1 atk, +15 Hit against Lances alongside axes
 WORD 0 //terminator
