@@ -1,0 +1,17 @@
+
+#include "ItemAvoDdgBonus.lyn.event"
+
+#define AvoDdgWeaponEnrty(WeaponID,ValueType,Value) "BYTE WeaponID ValueType Value"
+
+#define Bonus 0
+#define Penaty 1
+
+
+ItemAvoBonusList: //Attacker weapon, ValueType, Change
+AvoDdgWeaponEnrty(IronSword,Bonus,100)
+BYTE 0 0 0 //terminator
+
+
+ItemDdgBonusList: //Attacker weapon, ValueType, Change
+AvoDdgWeaponEnrty(IronSword,Bonus,100)
+BYTE 0 0 0 //terminator
