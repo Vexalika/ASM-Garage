@@ -6,5 +6,5 @@ POIN AvoList
 
 ALIGN 4
 AvoList:
-BYTE Myrm MyrmF Swordmaster SwordmasterF Thief ThiefF Rogue Assassin AssassinF PegasusKnight FalcoKnight 0x00
+BYTE Myrmidon Myrmidon_F Swordmaster Swordmaster_F 0x00
 
