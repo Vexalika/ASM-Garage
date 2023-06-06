@@ -1,4 +1,4 @@
-This hack changes the damage calculations of staff weapons to output half damage mimicking the behavior in Fire Embelem Heroes. The internals are a bit thorough and there are options to circumvent the calculation included.
+This hack changes the damage calculations of staff weapons to output half damage mimicking the behavior in Fire Emblem Heroes. The internals are a bit thorough and there are options to circumvent the calculation included.
 
 This has pretty straight foward installation and usage.
 
