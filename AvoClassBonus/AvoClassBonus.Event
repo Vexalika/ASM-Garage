@@ -1,0 +1,10 @@
+
+ALIGN 4
+AvoClassBonus:
+#incbin "AvoClassBonus.dmp"
+POIN AvoList
+
+ALIGN 4
+AvoList:
+BYTE Myrm MyrmF Swordmaster SwordmasterF Thief ThiefF Rogue Assassin AssassinF PegasusKnight FalcoKnight 0x00
+
