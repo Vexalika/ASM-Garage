@@ -32,7 +32,7 @@ beq CheckCritAvo
 cmp r2,r0
 beq NextAtkrAvo
 
-add r3,#4
+add r3,#3
 b AvoLoopStart
 
 
@@ -95,7 +95,7 @@ beq CheckDefender
 cmp r2,r0
 beq NextAtkrDdg
 
-add r3,#4
+add r3,#3
 b DdgLoopStart
 
 
@@ -163,7 +163,7 @@ beq CheckDfdrCritAvo
 cmp r2,r0
 beq NextDfdrAvo
 
-add r3,#4
+add r3,#3
 b AvoLoopStart2
 
 
@@ -226,7 +226,7 @@ beq End
 cmp r2,r0
 beq NextDfdrDdg
 
-add r3,#4
+add r3,#3
 b DdgLoopStart2
 
 
