@@ -8,10 +8,16 @@
 
 
 ItemAvoBonusList: //Attacker weapon, ValueType, Change
-AvoDdgWeaponEnrty(IronSword,Bonus,100)
+//AvoDdgWeaponEnrty(IronSword,Bonus,100)
+AvoDdgWeaponEnrty(Franziska,Bonus,25)
+AvoDdgWeaponEnrty(Kard,Bonus,25)
+AvoDdgWeaponEnrty(IronHaven,Bonus,25)
+AvoDdgWeaponEnrty(RunicAxe,Bonus,25)
 BYTE 0 0 0 //terminator
 
 
 ItemDdgBonusList: //Attacker weapon, ValueType, Change
-AvoDdgWeaponEnrty(IronSword,Bonus,100)
+//AvoDdgWeaponEnrty(IronSword,Bonus,100)
+AvoDdgWeaponEnrty(IronHaven,Bonus,15)
+AvoDdgWeaponEnrty(RunicAxe,Bonus,15)
 BYTE 0 0 0 //terminator
