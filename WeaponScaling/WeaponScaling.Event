@@ -1,0 +1,18 @@
+
+#include "WeaponScaling.lyn.event"
+
+#define WeaponScaleEntry(WeaponID,Stat,Value) "BYTE WeaponID Stat Value"
+
+#define STR 	0x14
+#define SKL		0x15
+#define SDP 	0x16
+#define DEF 	0x17
+#define RES 	0x18
+#define LCK		0x19
+#define MAG		0x3A	
+
+//Remember that "Value" is in decimal becuase it represents  the scale percent
+
+WeaponScaleBonusList:
+WeaponScaleEntry(IronSword,DEF,100)
+BYTE 0 0 0 //terminator
