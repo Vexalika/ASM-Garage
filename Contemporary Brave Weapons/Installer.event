@@ -1,0 +1,12 @@
+PUSH
+ORG 0x2B096
+SHORT 0x46C0
+jumpToHack(ContemporaryBraveWeapons)
+POP
+
+ALIGN 4
+ContemporaryBrave:
+#include "ContemporaryBrave.lyn.event"
+
+ModernBraveWeaponList:
+BYTE BraveSword BraveLance BraveAxe BraveBow 0x00
