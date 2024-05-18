@@ -1,14 +1,15 @@
 .thumb
 .align
 
-.global RegainHpAfterChater
-.type RegainHpAfterChater, %function
+.global RegainHpAfterChapter
+.type RegainHpAfterChapter, %function
 
 
 .equ SetUnitHp, 0x8019368 
 .equ GetUnitMaxHp, 0x8019190
 .equ GetUnitCurrentHp, 0x8019150
 .equ ChapterDataStruct, 0x202BCF0
+.equ UpdatePrevDeployStates, 0x8018DB0 
  
 .macro blh to, reg=r3
 	ldr \reg, =\to
@@ -16,7 +17,7 @@
 	.short 0xF800
 .endm
 
-RegainHpAfterChater:
+RegainHpAfterChapter:
 push {lr}
 ldr  r0, =ChapterDataStruct     @ Self explanatory
 add  r0, #0x14   				@ Chapter Stuff byte
@@ -84,26 +85,111 @@ bge  AllHP
 
 
 NoHP:
-mov r0,r4
+mov r6, #0
+ldr r0, [r4]	             @ Charater pointer data
+ldr r0, [r0, #0x28]			 @ Character ability word
+mov r1, #0x20	             @ IsLord
+lsl r1, #8 					 @ 
+tst r0, r1
+beq NotLordA
+	ldr  r0,=LordBehaviorLink
+	ldrb r0, [r0]
+	mov  r1, #0
+	cmp  r0, r1
+	beq  ContinueA
+	mov  r1, #2
+	cmp  r0, r1
+	beq  AllHP
+	ldr  r0,=LordBonusAmountLink
+	ldrb  r0,[r0]
+	mov r6, r0
+	b 	ContinueA
+	
+NotLordA:
+	ldrb r0,[r4,#0xC]
+	mov  r1,#0x8
+	tst  r0,r1
+	beq  ContinueA
+	ldr  r0,=UndeployedBehaviorLink
+	ldrb r0, [r0]
+	mov  r1, #0
+	cmp  r0, r1
+	beq  ContinueA
+	mov  r1, #2
+	cmp  r0, r1
+	beq  AllHP
+	ldr  r0,=UndeployedBonusAmountLink
+	ldrb  r0,[r0]
+	mov  r6, r0
+	b 	 ContinueA
+
+
+ContinueA:
+mov r0,r4				@unit data
 blh  GetUnitCurrentHp
 cmp r0, #0
-bne Next
-add r1, r0 , #1
+bne SkipRes
+add r0,#1
+SkipRes:
+mov r1,r0
+add r1, r6
 mov r0, r4
 b   Next
 
 SomeHP:
-mov r0,r4
+mov r6, #0
+ldr r0, [r4]	             @ Charater pointer data
+ldr r0, [r0, #0x28]			 @ Character ability word
+mov r1, #0x20	             @ IsLord
+lsl r1, #8 					 @ 
+tst r0, r1
+beq NotLordB
+	ldr  r0,=LordBehaviorLink
+	ldrb r0, [r0]
+	mov  r1, #0
+	cmp  r0, r1
+	beq  ContinueB
+	mov  r1, #2
+	cmp  r0, r1
+	beq  AllHP
+	ldr  r0,=LordBonusAmountLink
+	ldrb  r0,[r0]
+	mov r6, r0
+	b 	ContinueB
+	
+NotLordB:
+	ldrb r0,[r4,#0xC]
+	mov  r1,#0x8
+	tst  r0,r1
+	beq  ContinueB
+	ldr  r0,=UndeployedBehaviorLink
+	ldrb r0, [r0]
+	mov  r1, #0
+	cmp  r0, r1
+	beq  ContinueB
+	mov  r1, #2
+	cmp  r0, r1
+	beq  AllHP
+	ldr  r0,=UndeployedBonusAmountLink
+	ldrb r0,[r0]
+	mov  r6, r0
+	b 	 ContinueB
+
+
+ContinueB:
+mov r0,r4				@unit data
 blh  GetUnitCurrentHp
 cmp r0, #0
-bne AddUnitHp
-add r0, #1
-AddUnitHp:
-ldr  r1, =FixedHPAmmountLink
+bne SkipResB
+add r0,#1
+SkipResB:
+ldr  r1, =FixedHPAmountLink
 ldrb r1, [r1]
-add  r1, r0 , r1
+add  r1, r0
+add  r1, r6
 mov  r0, r4
 b 	 Next
+
 
 AllHP:
 mov r0,r4
