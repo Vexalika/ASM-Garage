@@ -1,4 +1,4 @@
-As it was explained by me, by AuraWolf
+As it was explained to me, by AuraWolf
 
 For this, you need to edit correct unit module in SrcModules. Knowing whether StrMag Split is or isn't used is obvious, but if you're not sure if the Stair ASM is, you can check config. For any code examples I use, I'll be editing SaveUnitExpanded.s, which has neither the split or stairs asm. Once you've determined the correct unit module, open that up. We'll start with the edits there.
 
